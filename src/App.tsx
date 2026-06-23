@@ -51,6 +51,10 @@ import ResumeViewer from "./components/ResumeViewer";
 import ShivamPortrait from "./assets/images/shivam_profile_1781530664599.jpg";
 
 export default function App() {
+  useEffect(()=>{
+    window.history.scrollRestoration = "manual";
+    window.scrollTo(0,0);
+  },[]);
   const [activeSection, setActiveSection] = useState<string>("home");
   const [activeProjCategory, setActiveProjCategory] = useState<string>("all");
   const [selectedSkillCategory, setSelectedSkillCategory] = useState<string>("All");
@@ -154,9 +158,9 @@ export default function App() {
   };
 
   // Scroll to bottom of chat
-  useEffect(() => {
-    chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [chatMessages, isChatTyping]);
+  //useEffect(() => {
+   // chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+ // }, [chatMessages, isChatTyping]);
 
   // Handle local image file uploads with base64 conversion & storage hook
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -405,7 +409,7 @@ export default function App() {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#030208] text-slate-200 selection:bg-cyan-600/50 selection:text-white pb-16 overflow-x-hidden font-sans">
+    <div className="relative min-h-[85vh] bg-[#030208] text-slate-200 selection:bg-cyan-600/50 selection:text-white pb-16 overflow-x-hidden font-sans">
       
       {/* Absolute Decorative Ambient Neon Glow Spheres */}
       <div className="absolute top-[3%] left-[10%] w-[550px] h-[550px] bg-cyan-500/[0.04] rounded-full blur-[140px] pointer-events-none z-0"></div>
@@ -541,7 +545,7 @@ export default function App() {
       <main className="max-w-7xl mx-auto px-6 pt-6 relative z-10 space-y-24">
         
         {/* SECTION 1: HERO (HOME) - Replicating photo perfectly with premium code */}
-        <section id="section-home" className="pt-12 md:pt-24 pb-8">
+        <section id="section-home" className="pt-12 md:pt-8 pb-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             
             {/* Left Column: Text & Hero Intro */}
